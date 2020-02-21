@@ -14,6 +14,10 @@ class neuralNetwork:
         # 正态概率的随机值, 第三个参数是numpy数组的形状大小
         self.wih = numpy.random.normal(0.0,pow(self.hnodes, -0.5), (self.hnodes , self.inodes))
         self.who = numpy.random.normal(0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes))
+        print("wih=")
+        print(self.wih)
+        print("who=")
+        print(self.who)
         # 学习率
         self.lr = learningrate
 
