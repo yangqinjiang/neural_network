@@ -1,4 +1,5 @@
 import numpy
+import scipy.special
 # definition
 class neuralNetwork:
     # init neuralNetwork
@@ -20,7 +21,8 @@ class neuralNetwork:
         print(self.who)
         # 学习率
         self.lr = learningrate
-
+        #sigmoid 激活函数
+        self.activation_function = lambda x: scipy.special.expit(x)
         pass
 
     # train the neuralNetwork
@@ -28,6 +30,17 @@ class neuralNetwork:
         pass
 
     #query the neuralNetwork
-    def query(self):
-        pass
+    # 只需要input_list,不需要任何其他输入
+    def query(self,input_list):
+        # convert input list to 2d array
+        inputs = numpy.array(input_list, ndmin=2).T
+        # calcualate signals into hidden layer
+        hidden_inputs = numpy.dot(self.wih, inputs)
+        # calculate the signals emerging from hidden layer
+        hidden_outputs = self.activation_function(hidden_inputs)
+        # calculate signals into final output layer
+        final_inputs = numpy.dot(self.who, hidden_outputs)
+        # calculate the signals emerging from final output layer
+        final_outputs = self.activation_function(final_inputs)
+        return final_outputs
 

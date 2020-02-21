@@ -16,3 +16,5 @@ if __name__ == '__main__':
     #初始权重矩阵
     print(np.random.rand(3,3)) # 3x3的numpy数组,数组中的每个值都是0~1的随机值
     print(np.random.rand(3,3) - 0.5) # 减去0.5
+    print("n.query...")
+    print(n.query([1.0, 0.5, -1.5]))
