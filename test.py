@@ -10,5 +10,4 @@ if __name__ == '__main__':
     learning_rate = 0.5
     #创建neuralNetwork的实例
     n = neuralNetwork(input_nodes,hidden_nodes,output_nodes,learning_rate)
-
     print(n)
